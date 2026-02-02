@@ -34,7 +34,7 @@ export default function Home() {
       <Head>
         <title>Abhishek Gattineni</title>
         <meta name="description" content="Abhishek Gattineni's Portfolio" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.png" />
       </Head>
       <Navbar executeScroll={executeScroll} refs={ref} />
       <Main executeScroll={executeScroll} refs={ref} refer={mainRef} />

@@ -27,6 +27,10 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
 
 # vercel
 .vercel
+
+# question logs (optional - remove this line if you want to track questions in git)
+/data/questions.json

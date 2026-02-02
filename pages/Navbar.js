@@ -2,6 +2,8 @@ import { useState, useCallback, useEffect } from "react";
 
 const Navbar = ({ executeScroll, refs }) => {
   const [isOpen, setOpen] = useState(false);
+  const [isLogoHovered, setIsLogoHovered] = useState(false);
+
   return (
     <nav
       className="navbar fixed-top navbar-expand-lg navbar-light col-12"
@@ -16,8 +18,32 @@ const Navbar = ({ executeScroll, refs }) => {
             executeScroll(refs.mainRef);
             if (isOpen) setOpen(false);
           }}
+          onMouseEnter={() => setIsLogoHovered(true)}
+          onMouseLeave={() => setIsLogoHovered(false)}
+          style={{
+            position: "relative",
+            display: "inline-block",
+            textDecoration: "none",
+          }}
         >
-          <h5 style={{ color: "#64ffda" }}>AG</h5>
+          <h5
+            style={{
+              color: "#64ffda",
+              margin: 0,
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              width: isLogoHovered ? "180px" : "30px",
+              transition: "width 0.4s ease",
+            }}
+          >
+            <span
+              style={{
+                display: "inline-block",
+              }}
+            >
+              {isLogoHovered ? "Abhishek Gattineni" : "AG"}
+            </span>
+          </h5>
         </a>
         <button
           className="navbar-toggler"
