@@ -1,5 +1,6 @@
 import { buildContext, getResumePath } from '../../utils/contextBuilder';
 import { logQuestion } from '../../utils/questionLogger';
+import { getLocationFromIP } from '../../utils/geolocation';
 
 /**
  * System prompt for the portfolio chatbot
@@ -86,14 +87,29 @@ export default async function handler(req, res) {
     const data = await response.json();
     const answer = data.choices[0]?.message?.content || 'Sorry, I could not generate a response.';
 
-    // Log the question (non-blocking - don't wait for it)
-    logQuestion(question, answer, {
-      ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress,
-      userAgent: req.headers['user-agent']
-    }).catch(err => {
-      console.error('Failed to log question:', err);
-      // Don't throw - logging failure shouldn't break the response
-    });
+    // Get IP address
+    const ip = req.headers['x-forwarded-for']?.split(',')[0].trim() || 
+               req.headers['x-real-ip'] || 
+               req.connection?.remoteAddress || 
+               req.socket?.remoteAddress;
+
+    // Log the question with location (non-blocking - don't wait for it)
+    (async () => {
+      try {
+        // Get location from IP (non-blocking)
+        const location = await getLocationFromIP(ip);
+        
+        // Log with location data
+        await logQuestion(question, answer, {
+          ip: ip,
+          userAgent: req.headers['user-agent'],
+          location: location
+        });
+      } catch (err) {
+        console.error('Failed to log question:', err);
+        // Don't throw - logging failure shouldn't break the response
+      }
+    })();
 
     return res.status(200).json({ answer });
   } catch (error) {

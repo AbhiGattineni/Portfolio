@@ -126,19 +126,32 @@ const Navbar = ({ executeScroll, refs }) => {
                 </small>
               </h5>
             </li>
-            {/* <li className="nav-item ms-2">
+            <li className="nav-item ms-2">
               <button
                 className="btn btn-outline-light"
-                style={{ color: "#64ffda" }}
-                type="submit"
+                style={{ 
+                  color: "#64ffda",
+                  borderColor: "#64ffda",
+                  backgroundColor: "transparent",
+                  transition: "all 0.3s ease"
+                }}
+                type="button"
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = "rgba(100, 255, 218, 0.1)";
+                  e.target.style.borderColor = "#64ffda";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = "transparent";
+                  e.target.style.borderColor = "#64ffda";
+                }}
                 onClick={() => {
-                  window.open("./Resume.pdf", "_blank");
-                  setOpen(!isOpen);
+                  window.open("/Resume.pdf", "_blank");
+                  if (isOpen) setOpen(false);
                 }}
               >
                 Resume
               </button>
-            </li> */}
+            </li>
           </ul>
         </div>
       </div>

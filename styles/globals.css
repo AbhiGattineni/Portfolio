@@ -521,7 +521,7 @@ body {
 }
 
 .main-timeline .timeline-content img {
-  filter: grayscale(100%); /* Light grey effect */
+  filter: none; /* Full color images */
   border: 2px solid #64ffda !important; /* Border color */
   max-width: 100%; /* Ensure the image is responsive and fits within the container */
   display: block; /* To align properly with other elements */

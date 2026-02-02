@@ -48,7 +48,7 @@ const Experience = ({ refer }) => {
       title: "Operations Head at Hyderabad Trekking Company",
       description:
         "Led operations for Hyderabad Trekking Company, managing a team of 15-20 members to coordinate large-scale trekking events across various regions of India. Streamlined logistics, managed vendor relationships, and optimized scheduling to ensure smooth execution of events. My role involved not only overseeing the day-to-day operations but also implementing strategies to scale the business, resulting in increased participant engagement and operational efficiency. I also contributed to the development of an internal tool to manage operations more effectively.",
-      img: "/htc.png",
+      img: ["/htc.png", "/abhihtc.jpeg"],
     },
     {
       month: "1 Year",
@@ -75,7 +75,7 @@ const Experience = ({ refer }) => {
       if (images && images.length > 1) {
         const interval = setInterval(() => {
           setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 2000); // Switch every 1 second
+        }, 2000); // Switch every 2 seconds
 
         return () => clearInterval(interval);
       }
@@ -201,6 +201,7 @@ const Experience = ({ refer }) => {
                 </p>
                 {item.img && (
                   <SlidingImage 
+                    key={`${item.title}-${Array.isArray(item.img) ? item.img.join('-') : item.img}`}
                     images={Array.isArray(item.img) ? item.img : [item.img]} 
                     alt={item.title}
                   />
