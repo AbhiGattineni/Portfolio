@@ -2,7 +2,12 @@
  * Portfolio Data - Structured data extracted from website sections
  * This file serves as the single source of truth for portfolio information
  * Update this file when website content changes
+ *
+ * Note: the projects list lives in ./projectsData.js so the Works section and
+ * the chat context never drift apart. Edit projects there.
  */
+
+import projects from "./projectsData";
 
 export const portfolioData = {
   // Personal Information
@@ -97,44 +102,16 @@ export const portfolioData = {
     }
   ],
 
-  // Projects
-  projects: [
-    {
-      title: "Word Highlighter",
-      type: "Chrome Extension",
-      description: "Chrome extension to highlight words with different colors on webpages for easier content discovery.",
-      link: "https://chromewebstore.google.com/detail/word-highlighter/nheocgebdfhdfknfppfhfcgijedcepae",
-      technologies: ["Chrome Extension", "JavaScript", "Developer Tools"]
-    },
-    {
-      title: "POS System for Retail Billing",
-      type: "Point of Sale System",
-      description: "Proof-of-concept POS system with React, Material-UI, Google OAuth, Node.js backend, and Firebase database.",
-      link: "https://v1-demo.lightworks-services.com/#/",
-      technologies: ["React", "Material-UI", "Node.js", "Firebase", "Google OAuth"]
-    },
-    {
-      title: "Indimitra.com",
-      type: "B2B E-commerce Platform",
-      description: "Self-hosted e-commerce platform for small businesses with interfaces for Users, Store Managers, and Delivery Partners.",
-      link: "https://indimitra.com/",
-      technologies: ["React", "Django", "FastAPI", "GraphQL", "AWS"]
-    },
-    {
-      title: "QR Menu Scanner",
-      type: "Restaurant Menu System",
-      description: "Digital menu solution for restaurants with QR code scanning for contactless dining.",
-      link: "https://scoressportsbar.menuscard.com/",
-      technologies: ["QR Code", "Mobile Web"]
-    },
-    {
-      title: "GuestsMenu.com",
-      type: "Event Management Platform",
-      description: "Platform to manage guest information and preferences for events and gatherings.",
-      link: "https://www.guestsmenu.com/",
-      technologies: ["Event Management", "Guest Management"]
-    }
-  ],
+  // Projects - shared with the Works section, see ./projectsData.js
+  projects: projects
+    .filter(p => !p.isMoreCard)
+    .map(({ title, type, summary, technologies, link, github }) => ({
+      title,
+      type,
+      description: summary,
+      technologies,
+      link: link || github || null
+    })),
 
   // Contact Information
   contact: {
