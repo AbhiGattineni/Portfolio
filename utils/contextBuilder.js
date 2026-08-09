@@ -13,7 +13,7 @@ const sectionKeywords = {
   skills: ['skill', 'technology', 'tech', 'stack', 'know', 'proficient', 'expertise', 'programming', 'language', 'framework', 'react', 'node', 'python', 'javascript', 'css', 'aws', 'database', 'sql', 'api', 'django', 'fastapi', 'graphql'],
   experience: ['experience', 'work', 'job', 'company', 'companies', 'worked', 'position', 'role', 'career', 'c3', 'wells', 'fargo', 'cyient', 'fractal', 'startup', 'wheelz'],
   education: ['education', 'degree', 'university', 'college', 'school', 'study', 'studied', 'csulb', 'bachelor', 'master', 'gpa'],
-  projects: ['project', 'built', 'created', 'developed', 'portfolio', 'work', 'product', 'app', 'website', 'chrome', 'extension', 'pos', 'indimitra', 'qr', 'menu'],
+  projects: ['project', 'built', 'created', 'developed', 'portfolio', 'work', 'product', 'app', 'website', 'chrome', 'extension', 'pos', 'indimitra', 'qr', 'menu', 'guestsmenu', 'cliff', 'recruiter', 'ambulance', 'raspberry', 'pi', 'computer vision', 'iot'],
   contact: ['contact', 'reach', 'connect', 'hire', 'freelance', 'available', 'opportunity', 'linkedin', 'social', 'facebook', 'instagram']
 };
 
@@ -147,7 +147,7 @@ export function buildContext(question, maxSections = 4) {
     contexts.push(buildAboutContext());
     contexts.push(buildSkillsContext());
     contexts.push(`[Experience Summary] ${portfolioData.experience.length} positions including: Senior Applications Engineer at C3 AI/Fractal (current), Software Engineer at Wells Fargo, 4 years at Cyient Ltd.`);
-    contexts.push(`[Projects Summary] Key projects: Word Highlighter Chrome Extension, POS System, Indimitra B2B E-commerce, QR Menu Scanner.`);
+    contexts.push(`[Projects Summary] Key projects: Indimitra B2B E-commerce, GuestsMenu event platform, Cliff Recruiter Suite, Ambulance Tracking (Raspberry Pi computer vision), Word Highlighter Chrome Extension, POS System, QR Menu Scanner.`);
   } else {
     // Add relevant sections up to maxSections
     for (let i = 0; i < Math.min(relevantSections.length, maxSections - 1); i++) {
