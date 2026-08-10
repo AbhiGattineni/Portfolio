@@ -130,6 +130,7 @@ export const projects = [
         alt: "Close-up of the Pi Camera Module and its 5MP CS lens on the acrylic mount",
       },
     ],
+    link: "https://www.anddhengroup.com/ass/ambulance",
   },
   {
     id: "word-highlighter",
