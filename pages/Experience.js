@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 const Experience = ({ refer }) => {
   const timelineData = [
@@ -56,7 +57,7 @@ const Experience = ({ refer }) => {
       title: "Associate Director & Production Designer",
       description:
         "Worked as an Associate Director and Production Designer in the media and entertainment industry. Led teams in overseeing the design and execution of production sets, managing tight budgets and deadlines. Played a critical role in coordinating creative projects from inception to final delivery, collaborating with directors, designers, and other departments to ensure high-quality production standards were met. This experience honed my leadership and project management skills, which have been valuable in my technical career.",
-      img: "/movie.jpg",
+      img: ["/movie.jpg", "/loop-poster.jpg", "/film-set.jpg", "/film-onset.jpg"],
     },
     {
       month: "4 Years",
@@ -70,16 +71,26 @@ const Experience = ({ refer }) => {
   // Sliding Image Component
   const SlidingImage = ({ images, alt }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
+
+    const goTo = useCallback(
+      (step) => {
+        setCurrentIndex(
+          (prevIndex) => (prevIndex + step + images.length) % images.length
+        );
+      },
+      [images]
+    );
 
     useEffect(() => {
-      if (images && images.length > 1) {
+      if (images && images.length > 1 && !isPaused) {
         const interval = setInterval(() => {
           setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 2000); // Switch every 2 seconds
+        }, 4000); // Switch every 4 seconds
 
         return () => clearInterval(interval);
       }
-    }, [images]);
+    }, [images, isPaused, currentIndex]);
 
     if (!images || images.length === 0) return null;
 
@@ -110,17 +121,38 @@ const Experience = ({ refer }) => {
       );
     }
 
+    const chevronStyle = {
+      position: "absolute",
+      top: "50%",
+      transform: "translateY(-50%)",
+      zIndex: 3,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: "34px",
+      height: "34px",
+      padding: 0,
+      border: "1px solid #64ffda",
+      borderRadius: "50%",
+      backgroundColor: "rgba(10, 25, 47, 0.75)",
+      color: "#64ffda",
+      cursor: "pointer",
+      transition: "background-color 0.3s ease, color 0.3s ease",
+    };
+
     return (
       <div
         className="m-3"
-        style={{ 
-          maxWidth: "500px", 
-          height: "300px", 
-          position: "relative", 
+        style={{
+          maxWidth: "500px",
+          height: "300px",
+          position: "relative",
           overflow: "hidden",
           borderRadius: "4px",
           backgroundColor: "#112240"
         }}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
       >
         {images.map((img, index) => (
           <div
@@ -154,6 +186,56 @@ const Experience = ({ refer }) => {
             />
           </div>
         ))}
+
+        <button
+          type="button"
+          aria-label={`Previous image of ${alt}`}
+          onClick={() => goTo(-1)}
+          style={{ ...chevronStyle, left: "10px" }}
+        >
+          <BsChevronLeft size={16} />
+        </button>
+        <button
+          type="button"
+          aria-label={`Next image of ${alt}`}
+          onClick={() => goTo(1)}
+          style={{ ...chevronStyle, right: "10px" }}
+        >
+          <BsChevronRight size={16} />
+        </button>
+
+        <div
+          style={{
+            position: "absolute",
+            bottom: "10px",
+            left: 0,
+            right: 0,
+            zIndex: 3,
+            display: "flex",
+            justifyContent: "center",
+            gap: "6px",
+          }}
+        >
+          {images.map((img, index) => (
+            <button
+              key={img}
+              type="button"
+              aria-label={`Go to image ${index + 1} of ${alt}`}
+              onClick={() => setCurrentIndex(index)}
+              style={{
+                width: "8px",
+                height: "8px",
+                padding: 0,
+                border: "none",
+                borderRadius: "50%",
+                cursor: "pointer",
+                backgroundColor:
+                  index === currentIndex ? "#64ffda" : "rgba(204, 214, 246, 0.4)",
+                transition: "background-color 0.3s ease",
+              }}
+            />
+          ))}
+        </div>
       </div>
     );
   };
