@@ -89,6 +89,7 @@ export const projects = [
       "Ceipal API",
       "LLM Integration",
     ],
+    link: "https://cliff-services.web.app/",
     github: "https://github.com/AbhiGattineni/Cliff-Recruiter-Suite",
   },
   {
