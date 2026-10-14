@@ -16,7 +16,6 @@ export const portfolioData = {
     title: "Web & Mobile App Developer",
     tagline: "I build things for the Web & Mobile.",
     location: "Los Angeles, USA",
-    phone: "+1 562-542-7985",
     email: "abhishekgattineni@gmail.com",
     degree: "Master's in CS, CSULB",
     freelance: "Available",
@@ -46,6 +45,7 @@ export const portfolioData = {
     ],
     platforms: [
       { name: "AWS", level: 70 },
+      { name: "Agentic Vibe Coding", level: 80 },
       { name: "WordPress/Shopify", level: 70 }
     ]
   },
@@ -53,7 +53,19 @@ export const portfolioData = {
   // Experience Timeline
   experience: [
     {
-      duration: "1 Year",
+      duration: "March",
+      year: "2026",
+      title: "Ambulance Tracker - Fast-Moving Traffic & Challan Dispatch",
+      description: "A dash-mounted, battery-powered Raspberry Pi and camera rig built for fast-moving traffic. It watches the road ahead, detects approaching ambulances on-device from the live camera feed, and flags vehicles blocking the ambulance's path so a challan can be dispatched against them. Inference runs on the device itself, so tracking keeps working with no network signal. Built and road-tested as a working hardware prototype on a live freeway run, not just on recorded footage."
+    },
+    {
+      duration: "Aug 2025 – Present",
+      year: "2025",
+      title: "Cliff Recruiter Suite at Cliff Services Inc.",
+      description: "Building the Cliff Recruiter Suite, an internal web app for Cliff Services Inc. that bundles two recruiter tools. Resume Parsing takes a resume plus a job description and returns an LLM-backed fit score, rating, review, skill match and AI-generated-content signal. Report Generation builds the Ceipal submissions report from the live Ceipal APIs or uploaded exports and downloads a formatted .xlsx. The frontend is React + Vite + TypeScript, with Firebase Auth and Cloud Functions behind it holding every secret server-side."
+    },
+    {
+      duration: "2.5 Years",
       year: "2024",
       title: "Senior Applications Engineer at C3 AI / Fractal",
       description: "Key role in development and maintenance of UI component library for C3 AI's enterprise AI platform. Led design and implementation of UI components ensuring performance, scalability, and accessibility. Contributed to backend development using Python. Led technical design discussions and mentored junior engineers."

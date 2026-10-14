@@ -4,7 +4,26 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 const Experience = ({ refer }) => {
   const timelineData = [
     {
-      month: "1 Year",
+      month: "March",
+      year: "2026",
+      title: "Ambulance Tracker - Fast-Moving Traffic & Challan Dispatch",
+      description:
+        "A dash-mounted, battery-powered Raspberry Pi and camera rig built for fast-moving traffic. It watches the road ahead, detects approaching ambulances on-device from the live camera feed, and flags vehicles blocking the ambulance's path so a challan can be dispatched against them. Inference runs on the device itself, so tracking keeps working with no network signal. Built and road-tested as a working hardware prototype on a live freeway run, not just on recorded footage.",
+      img: [
+        "/ambulance-windshield.jpg",
+        "/ambulance-dashboard.jpg",
+        "/ambulance-camera.jpg",
+      ],
+    },
+    {
+      month: "Aug – Now",
+      year: "2025",
+      title: "Cliff Recruiter Suite at Cliff Services Inc.",
+      description:
+        "Building the Cliff Recruiter Suite, an internal web app for Cliff Services Inc. that bundles two recruiter tools. Resume Parsing takes a resume plus a job description and returns an LLM-backed fit score, rating, review, skill match and AI-generated-content signal. Report Generation builds the Ceipal submissions report from the live Ceipal APIs or uploaded exports and downloads a formatted .xlsx. The frontend is React + Vite + TypeScript, with Firebase Auth and Cloud Functions behind it holding every secret server-side.",
+    },
+    {
+      month: "2.5 Years",
       year: "2024",
       title: "Senior Applications Engineer at C3 AI/ Fractal",
       description:

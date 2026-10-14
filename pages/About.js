@@ -104,10 +104,6 @@ const About = ({ refer }) => {
                 <ul>
                   <li>
                     <i className="bi bi-chevron-right"></i>{" "}
-                    <strong>Phone:</strong> <span>+1 562-542-7985</span>
-                  </li>
-                  <li>
-                    <i className="bi bi-chevron-right"></i>{" "}
                     <strong>City:</strong> <span>Los Angeles, USA</span>
                   </li>
                 </ul>
@@ -121,7 +117,7 @@ const About = ({ refer }) => {
                   </li>
                   <li>
                     <i className="bi bi-chevron-right"></i>{" "}
-                    <strong>PhEmailone:</strong>{" "}
+                    <strong>Email:</strong>{" "}
                     <span>abhishekgattineni@gmail.com</span>
                   </li>
                   <li>
@@ -293,6 +289,21 @@ const About = ({ refer }) => {
                   role="progressbar"
                   style={{ width: "0%", "--target-width": "90%" }}
                   aria-valuenow="90"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+            <div className="progress fade-in-on-scroll" style={{ animationDelay: "0.6s" }}>
+              <span className="skill">
+                AGENTIC VIBE CODING <i className="val">80%</i>
+              </span>
+              <div className="progress-bar-wrap">
+                <div
+                  className="progress-bar"
+                  role="progressbar"
+                  style={{ width: "0%", "--target-width": "80%" }}
+                  aria-valuenow="80"
                   aria-valuemin="0"
                   aria-valuemax="100"
                 ></div>
