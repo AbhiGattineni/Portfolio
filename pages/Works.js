@@ -49,7 +49,7 @@ const Works = ({ refer }) => {
                         </p>
                     </div>
                 </div>
-                <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-3">
                     {projects.map((project, index) => (
                         <div className="col" key={project.id}>
                             <div
@@ -80,13 +80,13 @@ const Works = ({ refer }) => {
                                     e.currentTarget.style.borderColor = "rgba(100, 255, 218, 0.1)";
                                 }}
                             >
-                                <div className="card-body d-flex flex-column">
-                                    <div className="mb-3" style={{ fontSize: "2.5rem" }}>
+                                <div className="card-body d-flex flex-column p-3">
+                                    <div className="mb-2" style={{ fontSize: "1.75rem" }}>
                                         {project.icon}
                                     </div>
                                     <h5
-                                        className="card-title mb-2"
-                                        style={{ color: "#64ffda" }}
+                                        className="card-title mb-1"
+                                        style={{ color: "#64ffda", fontSize: "1rem" }}
                                     >
                                         {project.title}
                                     </h5>
@@ -96,7 +96,7 @@ const Works = ({ refer }) => {
                                         className="mb-2"
                                         style={{
                                             color: "#8892b0",
-                                            fontSize: "0.9rem",
+                                            fontSize: "0.8rem",
                                             fontStyle: "italic"
                                         }}
                                     >
@@ -106,13 +106,13 @@ const Works = ({ refer }) => {
                                         className="card-text flex-grow-1"
                                         style={{
                                             color: "#ccd6f6",
-                                            fontSize: "0.95rem",
-                                            lineHeight: "1.6"
+                                            fontSize: "0.85rem",
+                                            lineHeight: "1.5"
                                         }}
                                     >
                                         {project.summary}
                                     </p>
-                                    <div className="mt-3 mb-3">
+                                    <div className="mt-2 mb-2">
                                         <div className="d-flex flex-wrap gap-2">
                                             {project.technologies.slice(0, project.isMoreCard ? 4 : 3).map((tech, techIndex) => (
                                                 <span

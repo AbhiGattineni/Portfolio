@@ -11,9 +11,9 @@ const sectionKeywords = {
   personal: ['name', 'who', 'abhishek', 'contact', 'email', 'phone', 'location', 'where', 'live', 'based'],
   about: ['about', 'summary', 'bio', 'interest', 'hobby', 'like', 'passion'],
   skills: ['skill', 'technology', 'tech', 'stack', 'know', 'proficient', 'expertise', 'programming', 'language', 'framework', 'react', 'node', 'python', 'javascript', 'css', 'aws', 'database', 'sql', 'api', 'django', 'fastapi', 'graphql'],
-  experience: ['experience', 'work', 'job', 'company', 'companies', 'worked', 'position', 'role', 'career', 'c3', 'wells', 'fargo', 'cyient', 'fractal', 'startup', 'wheelz'],
+  experience: ['experience', 'work', 'job', 'company', 'companies', 'worked', 'position', 'role', 'career', 'c3', 'wells', 'fargo', 'cyient', 'fractal', 'startup', 'wheelz', 'ambulance', 'challan', 'tracker', 'cliff'],
   education: ['education', 'degree', 'university', 'college', 'school', 'study', 'studied', 'csulb', 'bachelor', 'master', 'gpa'],
-  projects: ['project', 'built', 'created', 'developed', 'portfolio', 'work', 'product', 'app', 'website', 'chrome', 'extension', 'pos', 'indimitra', 'qr', 'menu', 'guestsmenu', 'cliff', 'recruiter', 'ambulance', 'raspberry', 'pi', 'computer vision', 'iot'],
+  projects: ['project', 'built', 'created', 'developed', 'portfolio', 'work', 'product', 'app', 'website', 'chrome', 'extension', 'pos', 'indimitra', 'qr', 'menu', 'guestsmenu', 'cliff', 'recruiter'],
   contact: ['contact', 'reach', 'connect', 'hire', 'freelance', 'available', 'opportunity', 'linkedin', 'social', 'facebook', 'instagram']
 };
 
@@ -38,7 +38,7 @@ function getSectionRelevance(question, sectionName) {
  */
 function buildPersonalContext() {
   const p = portfolioData.personal;
-  return `[Personal] ${p.name}, ${p.title}. Location: ${p.location}. Email: ${p.email}. Phone: ${p.phone}. Education: ${p.degree}. Freelance: ${p.freelance}.`;
+  return `[Personal] ${p.name}, ${p.title}. Location: ${p.location}. Email: ${p.email}. Education: ${p.degree}. Freelance: ${p.freelance}.`;
 }
 
 /**
@@ -60,7 +60,7 @@ function buildSkillsContext() {
     ...s.databases.map(sk => sk.name),
     ...s.platforms.map(sk => sk.name)
   ];
-  return `[Skills] Frontend: React JS (expert), CSS, JavaScript. Backend: Node JS, Django, FastAPI, REST API, GraphQL. Database: SQL, NoSQL. Cloud: AWS. Other: WordPress, Shopify.`;
+  return `[Skills] Frontend: React JS (expert), CSS, JavaScript. Backend: Node JS, Django, FastAPI, REST API, GraphQL. Database: SQL, NoSQL. Cloud: AWS. Other: WordPress, Shopify, Agentic Vibe Coding.`;
 }
 
 /**
@@ -146,8 +146,8 @@ export function buildContext(question, maxSections = 4) {
     // General question - include brief overview of each section
     contexts.push(buildAboutContext());
     contexts.push(buildSkillsContext());
-    contexts.push(`[Experience Summary] ${portfolioData.experience.length} positions including: Senior Applications Engineer at C3 AI/Fractal (current), Software Engineer at Wells Fargo, 4 years at Cyient Ltd.`);
-    contexts.push(`[Projects Summary] Key projects: Indimitra B2B E-commerce, GuestsMenu event platform, Cliff Recruiter Suite, Ambulance Tracking (Raspberry Pi computer vision), Word Highlighter Chrome Extension, POS System, QR Menu Scanner.`);
+    contexts.push(`[Experience Summary] ${portfolioData.experience.length} positions including: Ambulance Tracker (March 2026), Cliff Recruiter Suite at Cliff Services (Aug 2025 – present), Senior Applications Engineer at C3 AI/Fractal (2.5 years), Software Engineer at Wells Fargo, 4 years at Cyient Ltd.`);
+    contexts.push(`[Projects Summary] Key projects: Indimitra B2B E-commerce, GuestsMenu event platform, Cliff Recruiter Suite, Word Highlighter Chrome Extension, POS System, QR Menu Scanner.`);
   } else {
     // Add relevant sections up to maxSections
     for (let i = 0; i < Math.min(relevantSections.length, maxSections - 1); i++) {

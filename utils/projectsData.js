@@ -93,47 +93,6 @@ export const projects = [
     github: "https://github.com/AbhiGattineni/Cliff-Recruiter-Suite",
   },
   {
-    id: "ambulance-tracking",
-    title: "Ambulance Tracking",
-    type: "Edge AI / Computer Vision",
-    icon: "🚑",
-    summary:
-      "Dash-mounted Raspberry Pi and camera rig that spots approaching emergency vehicles from the live road feed and alerts the driver.",
-    description:
-      "A self-contained, battery-powered computer vision rig that mounts to a windshield and watches the road ahead. Frames from a Raspberry Pi Camera Module are processed on the device itself to detect ambulances and other emergency vehicles, so the driver gets an alert without any dependency on a network connection. Built and road-tested as a working hardware prototype rather than a simulation — the photos below are from a live freeway run.",
-    highlights: [
-      "Raspberry Pi paired with a Pi Camera Module on a laser-cut acrylic windshield mount",
-      "Runs off a 7.4V Li-ion battery pack, so the whole unit is untethered from the car",
-      "Inference happens on-device — no cloud round-trip, so detection keeps working with no signal",
-      "Detection runs against the live road feed and raises a driver alert on a match",
-      "Road-tested in a moving vehicle on the freeway, not just on recorded footage",
-    ],
-    technologies: [
-      "Raspberry Pi",
-      "Pi Camera Module",
-      "Python",
-      "OpenCV",
-      "Computer Vision",
-      "Edge AI",
-      "IoT",
-    ],
-    images: [
-      {
-        src: "/assets/img/projects/ambulance-tracking/rig-windshield.jpg",
-        alt: "Raspberry Pi and camera rig mounted against the windshield during a freeway drive",
-      },
-      {
-        src: "/assets/img/projects/ambulance-tracking/rig-dashboard.jpg",
-        alt: "The battery-powered Raspberry Pi stack sitting on the dashboard, camera facing the road",
-      },
-      {
-        src: "/assets/img/projects/ambulance-tracking/camera-closeup.jpg",
-        alt: "Close-up of the Pi Camera Module and its 5MP CS lens on the acrylic mount",
-      },
-    ],
-    link: "https://www.anddhengroup.com/ass/ambulance",
-  },
-  {
     id: "word-highlighter",
     title: "Word Highlighter",
     type: "Chrome Extension",
